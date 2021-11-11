@@ -575,7 +575,11 @@ class DesignerUI:
         self.bottomframe.pack(side=BOTTOM, anchor=S, fill=X, expand=True)
         self.main.pack(side=RIGHT, fill=BOTH, expand=True)
 
-        self.root.iconbitmap("ud-icon.ico")
+        try:
+            self.root.iconbitmap("assets/ud-icon.ico")
+        except:
+            # oh well. no icon.
+            pass
 
         # GUI is created; now populate and prepare the internals
         self.clear_mainframe()
@@ -1113,7 +1117,7 @@ class DesignerUI:
         epgfx = self.episodegraphic_stringvar.get()
         if not epgfx:
             epgfx = '-'
-            self.episode_info2['text'] = "Note: You must define a valid graphic for ALL episodes if you want your\nepisode graphics to appear, otherwise the episode name will be printed in the\nDoom font regardless of what you have put in the graphic field."
+            self.episode_info2['text'] = "Note: You must define a valid graphic for ALL episodes if you want your\nepisode graphics to appear, otherwise the episode name will be printed in the\ngame font regardless of what you have put in the graphic field."
         else:
             self.episode_info2['text'] = ""
 
