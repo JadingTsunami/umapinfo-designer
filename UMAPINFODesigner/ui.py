@@ -1036,17 +1036,11 @@ class DesignerUI:
         choice_next = self.choosenextlevel_stringvar.get()
         endgame = False
 
-        # Default/Same as normal exit and end game do not
-        # have next exits, so delete the "next" key if it's present.
-        if choice_next == "Default" or choice_next.startswith("End game"):
-            # clear out old keys (if present)
-            # no error if key is not there, so it's
-            # fine if they are not
-            umapinfo.del_key(self.umap, "next")
-            umapinfo.del_key(self.umap, "endgame")
-            umapinfo.del_key(self.umap, "endcast")
-            umapinfo.del_key(self.umap, "endbunny")
-            umapinfo.del_key(self.umap, "endpic")
+        umapinfo.del_key(self.umap, "next")
+        umapinfo.del_key(self.umap, "endgame")
+        umapinfo.del_key(self.umap, "endcast")
+        umapinfo.del_key(self.umap, "endbunny")
+        umapinfo.del_key(self.umap, "endpic")
 
         if not choice_next.endswith("custom picture"):
             self.endpic_stringvar.set("")
