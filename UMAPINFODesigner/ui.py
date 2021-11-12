@@ -42,7 +42,7 @@ import os
 # Version information
 __MAJOR__ = 1
 __MINOR__ = 0
-__PATCH__ = 0
+__PATCH__ = 1
 
 __VERSION__ = str(__MAJOR__) + "." + str(__MINOR__) + "." + str(__PATCH__)
 
