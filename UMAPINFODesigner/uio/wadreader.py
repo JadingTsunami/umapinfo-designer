@@ -118,10 +118,10 @@ def get_waddata_map_image(mapn, width=192):
 
     for v in edit.vertexes:
         # smeghammer
-        _x =  round(v.x * xscale,None)
-        _y =  round(-v.y * yscale,None)
+        _x = round( v.x * xscale, None)
+        _y = round(-v.y * yscale, None)
 
-        v.x =_x
+        v.x = _x
         v.y = _y
 
     im = Image.new('RGB', ((xmax - xmin) + 8, (ymax - ymin) + 8), (0,0,0))
