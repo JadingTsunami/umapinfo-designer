@@ -97,6 +97,9 @@ def parse_umapinfo(umapinfo):
             m = m.split("\n")
             keyvals = defaultdict(list)
             for kv in m:
+                kv = kv.strip()
+                if not kv:
+                    continue
                 (k,v) = kv.split('=')
                 keyvals[k.strip().lower()].append(parse_value(v.strip()))
             parsed_umapinfo[inmap] = keyvals
