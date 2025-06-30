@@ -93,7 +93,7 @@ def parse_umapinfo(umapinfo):
             inmap = m[4:].strip()
         else:
             # FIXME: Don't rely on a magic character combo here
-            m = re.sub(r',[\r\n]+',',|',m,flags=re.MULTILINE)
+            m = re.sub(r',[ \t]*[\r\n]+',',|',m,flags=re.MULTILINE)
             m = m.split("\n")
             keyvals = defaultdict(list)
             for kv in m:
