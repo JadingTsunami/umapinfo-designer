@@ -221,7 +221,7 @@ class DesignerUI:
 
         self.buttonpanel = Frame(self.side)
         self.selectediwad = StringVar()
-        self.selectediwad.trace('w', self.iwad_changed)
+        self.selectediwad.trace_add("write", self.iwad_changed)
 
         self.chooseiwad = OptionMenu(self.buttonpanel, self.selectediwad)
         self.addmapbtn = Button(self.buttonpanel, text="+", command=self.addmap)
@@ -315,8 +315,8 @@ class DesignerUI:
         self.labelclear_check.grid(row=3, column=1, sticky='n')
         self.mainframe_inputlist.append(self.labelclear_check)
 
-        self.labelname.trace('w', self.label_changed)
-        self.levelname.trace('w', self.level_changed)
+        self.labelname.trace_add("write", self.label_changed)
+        self.levelname.trace_add("write", self.level_changed)
 
 
         # subframe 2: map progression
@@ -324,11 +324,11 @@ class DesignerUI:
         Label(self.mapprogframe, text="Secret Exit").grid(row=0, column=1, sticky='s')
         
         self.choosenextlevel_stringvar = StringVar()
-        self.choosenextlevel_stringvar.trace('w', self.nextlevel_changed)
+        self.choosenextlevel_stringvar.trace_add("write", self.nextlevel_changed)
         self.choosenextlevel_optmenu = OptionMenu(self.mapprogframe, self.choosenextlevel_stringvar)
 
         self.choosenextsecretlevel_stringvar = StringVar()
-        self.choosenextsecretlevel_stringvar.trace('w', self.nextsecretlevel_changed)
+        self.choosenextsecretlevel_stringvar.trace_add("write", self.nextsecretlevel_changed)
         self.choosenextsecretlevel_optmenu = OptionMenu(self.mapprogframe, self.choosenextsecretlevel_stringvar)
 
         self.choosenextlevel_optmenu.grid(row=1, column=0, sticky='n')
@@ -356,13 +356,13 @@ class DesignerUI:
         self.epkey_label.grid(row=2, column=2, sticky='s')
 
         self.episodename_stringvar = StringVar()
-        self.episodename_stringvar.trace('w', self.episodeentry_changed)
+        self.episodename_stringvar.trace_add("write", self.episodeentry_changed)
 
         self.episodehotkey_stringvar = StringVar()
-        self.episodehotkey_stringvar.trace('w', self.episodeentry_changed)
+        self.episodehotkey_stringvar.trace_add("write", self.episodeentry_changed)
 
         self.episodegraphic_stringvar = StringVar()
-        self.episodegraphic_stringvar.trace('w', self.episodeentry_changed)
+        self.episodegraphic_stringvar.trace_add("write", self.episodeentry_changed)
 
         self.episodegraphic_entry = Entry(self.episodeframe, state='disabled', textvariable=self.episodegraphic_stringvar)
         self.episodegraphic_button = Button(self.episodeframe, text="Choose graphic", command=self.episodegraphic_choose, state='disabled')
@@ -397,7 +397,7 @@ class DesignerUI:
         self.skytexture_button.grid(row=2, column=1, sticky='n')
 
         self.partime_intvar = IntVar()
-        self.partime_intvar.trace('w', self.set_partime)
+        self.partime_intvar.trace_add("write", self.set_partime)
         self.partime_entry = Entry(self.mapconfigframe, textvariable=self.partime_intvar)
         self.partime_entry.grid(row=1, column=2, sticky='n')
 
