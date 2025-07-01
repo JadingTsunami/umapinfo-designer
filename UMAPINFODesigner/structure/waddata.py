@@ -56,7 +56,10 @@ class waddata():
             waddata.maps.update(newwad.maps.keys())
             waddata.data.update(newwad.data.keys())
             if 'UMAPINFO' in newwad.data:
-                waddata.umapinfo = newwad.data['UMAPINFO'].data.decode('ascii')
+                try:
+                    waddata.umapinfo = newwad.data['UMAPINFO'].data.decode('ascii')
+                except UnicodeDecodeError:
+                    waddata.umapinfo = newwad.data['UMAPINFO'].data.decode('utf-8')
 
             for t in newwad.txdefs.keys():
                 if t.startswith("TEXTURE"):

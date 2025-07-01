@@ -27,7 +27,10 @@ def write_umapinfo_to_wad(wadfile, umapinfo_string):
     else:
         w = omg.WAD()
 
-    w.data['UMAPINFO'] = omg.Lump(umapinfo_string.encode('ascii'))
+    try:
+        w.data['UMAPINFO'] = omg.Lump(umapinfo_string.encode('ascii'))
+    except UnicodeDecodeError:
+        w.data['UMAPINFO'] = omg.Lump(umapinfo_string.encode('utf-8'))
     w.to_file(wadfile)
 
 def write_umapinfo_to_file(filename, umapinfo_string):

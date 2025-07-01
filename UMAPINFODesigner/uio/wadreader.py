@@ -48,6 +48,8 @@ def read_waddata_from_wad_if_match(wadfile, doom, doom2, clean=False):
     umapinfo = None
     try:
         umapinfo = read_umapinfo_from_wad(wad)
+    except UnicodeDecodeError:
+        umapinfo = read_umapinfo_from_wad(wad, 'utf-8')
     except KeyError:
         # no UMAPINFO, so ignore Doom vs. Doom 2 checks
         doom = True
